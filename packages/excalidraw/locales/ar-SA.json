@@ -72,7 +72,7 @@
     "arrowtype_elbowed": "سهم زاوي",
     "fontSize": "حجم الخط",
     "fontFamily": "نوع الخط",
-    "addWatermark": "إضافة \"مصنوعة بواسطة Excalidraw\"",
+    "addWatermark": "إضافة \"مصنوعة بواسطة Solvey Whiteboard\"",
     "handDrawn": "رسم باليد",
     "normal": "عادي",
     "code": "رمز",
@@ -107,7 +107,7 @@
     "untitled": "غير معنون",
     "name": "الاسم",
     "yourName": "اسمك",
-    "madeWithExcalidraw": "مصنوعة بواسطة Excalidraw",
+    "madeWithExcalidraw": "مصنوعة بواسطة Solvey Whiteboard",
     "group": "تحديد مجموعة",
     "ungroup": "إلغاء تحديد مجموعة",
     "collaborators": "المتعاونون",
@@ -180,7 +180,7 @@
     "zoomToFitViewport": "التكبير لتناسب العرض",
     "zoomToFitSelection": "تكبير للعنصر المحدد",
     "zoomToFit": "تكبير لتلائم جميع العناصر",
-    "installPWA": "تثبيت Excalidraw محليًا (PWA)",
+    "installPWA": "تثبيت Solvey Whiteboard محليًا (PWA)",
     "autoResize": "تمكين تغيير حجم النص تلقائيًا",
     "imageCropping": "قص الصورة",
     "unCroppedDimension": "الأبعاد غير المقصوصة",
@@ -204,7 +204,6 @@
   },
   "library": {
     "noItems": "لا توجد عناصر أضيفت بعد...",
-    "hint_emptyLibrary": "حدد عنصر على القماش لإضافته هنا، أو تثبيت مكتبة من المستودع العام أدناه.",
     "hint_emptyPrivateLibrary": "حدد عنصر على القماش لإضافته هنا.",
     "search": {
       "inputPlaceholder": "",
@@ -272,7 +271,7 @@
     "cannotExportEmptyCanvas": "لا يمكن تصدير لوحة فارغة.",
     "couldNotCopyToClipboard": "تعذر النسخ إلى الحافظة.",
     "decryptFailed": "تعذر فك تشفير البيانات.",
-    "uploadedSecurly": "تم تأمين التحميل بتشفير النهاية إلى النهاية، مما يعني أن خادم Excalidraw والأطراف الثالثة لا يمكنها قراءة المحتوى.",
+    "uploadedSecurly": "تم تأمين التحميل بتشفير النهاية إلى النهاية، مما يعني أن خادم Solvey Whiteboard والأطراف الثالثة لا يمكنها قراءة المحتوى.",
     "loadSceneOverridePrompt": "تحميل الرسم الخارجي سيحل محل المحتوى الموجود لديك. هل ترغب في المتابعة؟",
     "collabStopOverridePrompt": "إيقاف الجلسة سيؤدي إلى الكتابة فوق رسومك السابقة المخزنة داخليًا. هل أنت متأكد؟\n\n(إذا كنت ترغب في الاحتفاظ برسمك المخزن داخليًا، أغلق علامة تبويب المتصفح بدلاً من ذلك.)",
     "errorAddingToLibrary": "تعذر إضافة العنصر إلى المكتبة",
@@ -280,7 +279,7 @@
     "confirmAddLibrary": "هذا سيضيف {{numShapes}} شكل إلى مكتبتك. هل أنت متأكد؟",
     "imageDoesNotContainScene": "يبدو أن هذه الصورة لا تحتوي على أي بيانات مشهد. هل قمت بتمكين تضمين المشهد أثناء التصدير؟",
     "cannotRestoreFromImage": "تعذر استعادة المشهد من ملف الصورة",
-    "invalidSceneUrl": "تعذر استيراد المشهد من عنوان URL المتوفر. إما أنها مشوهة، أو لا تحتوي على بيانات Excalidraw JSON صالحة.",
+    "invalidSceneUrl": "تعذر استيراد المشهد من عنوان URL المتوفر. إما أنها مشوهة، أو لا تحتوي على بيانات Solvey Whiteboard JSON صالحة.",
     "resetLibrary": "هذا سيؤدي إلى مسح مكتبتك. هل أنت متأكد؟",
     "removeItemsFromsLibrary": "حذف {{count}} عنصر (عناصر) من المكتبة؟",
     "invalidEncryptionKey": "مفتاح التشفير يجب أن يكون من 22 حرفًا. التعاون المباشر معطل.",
@@ -338,7 +337,7 @@
     "bucketfill": "",
     "hand": "يد (أداة الإزاحة)",
     "extraTools": "المزيد من الأدوات",
-    "mermaidToExcalidraw": "من Mermaid إلى Excalidraw",
+    "mermaidToExcalidraw": "من Mermaid إلى Solvey Whiteboard",
     "convertElementType": "تبديل نوع الشكل"
   },
   "bucketfill": {
@@ -422,7 +421,7 @@
     "desc_inProgressIntro": "تجري الآن جلسة تعاون مباشرة.",
     "desc_shareLink": "شارك هذا الرابط مع أي شخص تريده أن يشاركك الجلسة:",
     "desc_exitSession": "إيقاف الجلسة سيؤدي إلى قطع الاتصال الخاص بك من الغرفة، ولكن ستتمكن من مواصلة العمل مع المشهد محليًا. لاحظ أن هذا لن يؤثر على الأشخاص الآخرين، وسيظلون قادرين على التعاون في إصدارهم.",
-    "shareTitle": "الانضمام إلى جلسة تعاون مباشرة على Excalidraw"
+    "shareTitle": "الانضمام إلى جلسة تعاون مباشرة على Solvey Whiteboard"
   },
   "errorDialog": {
     "title": "خطأ"
@@ -438,9 +437,9 @@
     "link_title": "رابط قابل للمشاركة",
     "link_details": "تصدير الملف للمشاهدة فقط.",
     "link_button": "تصدير كرابط",
-    "excalidrawplus_description": "حفظ المشهد إلى مساحة العمل +Excalidraw الخاصة بك.",
+    "excalidrawplus_description": "حفظ المشهد إلى مساحة العمل +Solvey Whiteboard الخاصة بك.",
     "excalidrawplus_button": "تصدير",
-    "excalidrawplus_exportError": "تعذر التص несп في الوقت الحالي إلى +Excalidraw..."
+    "excalidrawplus_exportError": "تعذر التص несп في الوقت الحالي إلى +Solvey Whiteboard..."
   },
   "helpDialog": {
     "blog": "اقرأ مدونتنا",
@@ -539,8 +538,8 @@
     }
   },
   "encrypted": {
-    "tooltip": "رسوماتك مشفرة من النهاية إلى النهاية، لذا لا يمكن لخوادم Excalidraw رؤيتها أبدًا.",
-    "link": "مشاركة المدونة حول التشفير من النهاية إلى النهاية في Excalidraw"
+    "tooltip": "رسوماتك مشفرة من النهاية إلى النهاية، لذا لا يمكن لخوادم Solvey Whiteboard رؤيتها أبدًا.",
+    "link": "مشاركة المدونة حول التشفير من النهاية إلى النهاية في Solvey Whiteboard"
   },
   "stats": {
     "angle": "الزاوية",
@@ -633,7 +632,7 @@
       "excalidrawPlus": {
         "title": "Excalidraw+",
         "button": "تصدير إلى Excalidraw+",
-        "description": "حفظ المشهد إلى مساحة العمل +Excalidraw الخاصة بك."
+        "description": "حفظ المشهد إلى مساحة العمل +Solvey Whiteboard الخاصة بك."
       }
     },
     "modal": {
@@ -650,7 +649,7 @@
     }
   },
   "mermaid": {
-    "title": "Mermaid إلى Excalidraw",
+    "title": "Mermaid إلى Solvey Whiteboard",
     "button": "إدراج",
     "description": "",
     "syntax": "صيغة Mermaid",

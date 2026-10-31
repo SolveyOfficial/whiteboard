@@ -72,7 +72,7 @@
     "arrowtype_elbowed": "",
     "fontSize": "Teksta lielums",
     "fontFamily": "Fontu saime",
-    "addWatermark": "Pievienot \"Radīts ar Excalidraw\"",
+    "addWatermark": "Pievienot \"Radīts ar Solvey Whiteboard\"",
     "handDrawn": "Rokraksts",
     "normal": "Parasts",
     "code": "Kods",
@@ -107,7 +107,7 @@
     "untitled": "Bez nosaukuma",
     "name": "Vārds",
     "yourName": "Jūsu vārds",
-    "madeWithExcalidraw": "Radīts ar Excalidraw",
+    "madeWithExcalidraw": "Radīts ar Solvey Whiteboard",
     "group": "Grupēt atlasīto",
     "ungroup": "Atgrupēt atlasīto",
     "collaborators": "Dalībnieki",
@@ -138,7 +138,7 @@
     "toggleTheme": "",
     "theme": "",
     "personalLib": "Personīgā bibliotēka",
-    "excalidrawLib": "Excalidraw bibliotēka",
+    "excalidrawLib": "Solvey Whiteboard bibliotēka",
     "decreaseFontSize": "Samazināt fonta izmēru",
     "increaseFontSize": "Palielināt fonta izmēru",
     "unbindText": "Atdalīt tekstu",
@@ -204,7 +204,6 @@
   },
   "library": {
     "noItems": "Neviena vienība vēl nav pievienota...",
-    "hint_emptyLibrary": "Atlasiet objektu tāfelē, lai to šeit pievienotu, vai pievienojiet publisku bibliotēku zemāk.",
     "hint_emptyPrivateLibrary": "Atlasiet objektu tāfelē, lai to šeit pievienotu.",
     "search": {
       "inputPlaceholder": "",
@@ -272,7 +271,7 @@
     "cannotExportEmptyCanvas": "Nevar eksportēt tukšu tāfeli.",
     "couldNotCopyToClipboard": "Nevarēja nokopēt starpliktuvē.",
     "decryptFailed": "Nevarēja atšifrēt datus.",
-    "uploadedSecurly": "Augšuplāde nodrošināta ar šifrēšanu no gala līdz galam, kas nozīmē, ka Excalidraw serveri un trešās puses nevar lasīt saturu.",
+    "uploadedSecurly": "Augšuplāde nodrošināta ar šifrēšanu no gala līdz galam, kas nozīmē, ka Solvey Whiteboard serveri un trešās puses nevar lasīt saturu.",
     "loadSceneOverridePrompt": "Ārēja satura ielāde aizstās jūsu pašreizējo saturu. Vai vēlaties turpināt?",
     "collabStopOverridePrompt": "Sesijas pārtraukšana pārrakstīs jūsu iepriekšējo zīmējumu, kas saglabāts jūsu pārlūkā. Vai turpināt?\n\n(Ja vēlaties paturēt zīmējumu, kas saglabāts jūsu pārlūkā, vienkārši aizveriet pārlūka cilni.)",
     "errorAddingToLibrary": "Nevarēja pievienot vienumu bibliotēkai",
@@ -280,7 +279,7 @@
     "confirmAddLibrary": "Šī funkcija pievienos {{numShapes}} formu(-as) jūsu bibliotēkai. Vai turpināt?",
     "imageDoesNotContainScene": "Šķiet, ka attēls nesatur ainas datus. Vai iespējojāt ainas iegulšanu, kad eksportējāt?",
     "cannotRestoreFromImage": "Ainu nevarēja atgūt no attēla datnes",
-    "invalidSceneUrl": "Nevarēja importēt ainu no norādītā URL. Vai nu tas ir nederīgs, vai nesatur derīgus Excalidraw JSON datus.",
+    "invalidSceneUrl": "Nevarēja importēt ainu no norādītā URL. Vai nu tas ir nederīgs, vai nesatur derīgus Solvey Whiteboard JSON datus.",
     "resetLibrary": "Šī funkcija iztukšos bibliotēku. Vai turpināt?",
     "removeItemsFromsLibrary": "Vai izņemt {{count}} vienumu(s) no bibliotēkas?",
     "invalidEncryptionKey": "Šifrēšanas atslēgai jābūt 22 simbolus garai. Tiešsaistes sadarbība ir izslēgta.",
@@ -422,7 +421,7 @@
     "desc_inProgressIntro": "Notiek tiešsaistes sadarbības sesija.",
     "desc_shareLink": "Dalieties ar šo saiti ar jebkuru, ar ko vēlaties sadarboties:",
     "desc_exitSession": "Sesijas beigšana jūs atvienos no sadarbošanās, bet jūs vēl joprojām varēsiet strādāt ar ainu savā datorā. Ievērojiet, ka šis neietekmēs citus dalībniekus, un viņi vēl joprojām varēs sadarboties savā ainas versijā.",
-    "shareTitle": "Pievienoties tiešsaistes sadarbībai programmā Excalidraw"
+    "shareTitle": "Pievienoties tiešsaistes sadarbībai programmā Solvey Whiteboard"
   },
   "errorDialog": {
     "title": "Kļūda"
@@ -539,8 +538,8 @@
     }
   },
   "encrypted": {
-    "tooltip": "Jūsu zīmējumi ir šifrēti no gala līdz galam; līdz ar to Excalidraw serveri tos nekad neredzēs.",
-    "link": "Ieraksts par šifrēšanu no gala līdz galam Excalidraw blogā"
+    "tooltip": "Jūsu zīmējumi ir šifrēti no gala līdz galam; līdz ar to Solvey Whiteboard serveri tos nekad neredzēs.",
+    "link": "Ieraksts par šifrēšanu no gala līdz galam Solvey Whiteboard blogā"
   },
   "stats": {
     "angle": "Leņķis",

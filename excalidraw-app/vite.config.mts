@@ -6,10 +6,8 @@ import { ViteEjsPlugin } from "vite-plugin-ejs";
 import { VitePWA } from "vite-plugin-pwa";
 import checker from "vite-plugin-checker";
 import { createHtmlPlugin } from "vite-plugin-html";
-import Sitemap from "vite-plugin-sitemap";
+import license from "rollup-plugin-license";
 import { woff2BrowserPlugin } from "../scripts/woff2/woff2-vite-plugins";
-
-import { MERMAID_CHUNKS_LIST_NAME } from "./data/cacheMermaidChunks";
 
 import type { Plugin, Rollup } from "vite";
 
@@ -139,11 +137,13 @@ export default defineConfig(({ mode }) => {
   // To load .env variables
   const envVars = loadEnv(mode, `../`);
   // mermaid (+ its many deps & per-diagram chunks) is lazy-loaded and large,
-  // so we don't precache it (the app caches it once the TTD dialog is opened,
-  // see `cacheMermaidChunks`). Populated at build time by `lazyChunksPlugin`.
+  // so we don't precache it (the service worker caches the chunks once they
+  // are used). Populated at build time by `lazyChunksPlugin`.
   const mermaidChunkFileNames = new Set<string>();
   // https://vitejs.dev/config/
   return {
+    // the site is served from a sub-path on GitHub Pages
+    base: process.env.BASE_PATH || "/",
     server: {
       port: Number(envVars.VITE_APP_PORT || 3000),
       // open the browser
@@ -222,6 +222,12 @@ export default defineConfig(({ mode }) => {
         },
       ],
     },
+    css: {
+      preprocessorOptions: {
+        // the stylesheets still use `@import`
+        scss: { silenceDeprecations: ["import"] },
+      },
+    },
     build: {
       outDir: "build",
       rollupOptions: {
@@ -271,18 +277,48 @@ export default defineConfig(({ mode }) => {
       assetsInlineLimit: 0,
     },
     plugins: [
-      Sitemap({
-        hostname: "https://excalidraw.com",
-        outDir: "build",
-        changefreq: "monthly",
-        // its static in public folder
-        generateRobotsTxt: false,
-      }),
       woff2BrowserPlugin(),
+      // collect the licences of the bundled packages for
+      // `scripts/third-party-notices.mjs`
+      license({
+        thirdParty: {
+          includePrivate: false,
+          output: {
+            file: path.resolve(
+              __dirname,
+              "../node_modules/.cache/third-party-licences.json",
+            ),
+            template: (dependencies) =>
+              JSON.stringify(
+                dependencies.map(
+                  ({
+                    name,
+                    version,
+                    license,
+                    licenseText,
+                    noticeText,
+                    repository,
+                  }) => ({
+                    name,
+                    version,
+                    license,
+                    licenseText,
+                    noticeText,
+                    repository:
+                      typeof repository === "string"
+                        ? repository
+                        : repository?.url,
+                  }),
+                ),
+                null,
+                2,
+              ),
+          },
+        },
+      }) as unknown as Plugin,
       lazyChunksPlugin(
         /[\\/]node_modules[\\/]@excalidraw[\\/]mermaid-to-excalidraw[\\/]/,
         mermaidChunkFileNames,
-        MERMAID_CHUNKS_LIST_NAME,
       ),
       react(),
       checker({
@@ -317,9 +353,6 @@ export default defineConfig(({ mode }) => {
             // via a static import from the main bundle, defeating lazy
             // loading. So we exclude it by name instead.
             "**/CodeMirrorEditor-*.js",
-            // lazy-loaded Firebase SDK, only needed for collab/sharing, which
-            // require network anyway
-            "**/firebaseSDK-*.js",
           ],
           // mermaid chunks are excluded here rather than via `globIgnores`
           // as their file names are arbitrary
@@ -394,10 +427,10 @@ export default defineConfig(({ mode }) => {
           maximumFileSizeToCacheInBytes: 2.3 * 1024 ** 2, // 2.3MB
         },
         manifest: {
-          short_name: "Excalidraw",
-          name: "Excalidraw",
+          short_name: "Whiteboard",
+          name: "Solvey Whiteboard",
           description:
-            "Excalidraw is a whiteboard tool that lets you easily sketch diagrams that have a hand-drawn feel to them.",
+            "A free whiteboard for sketching diagrams, wireframes and ideas with a hand-drawn feel.",
           icons: [
             {
               src: "android-chrome-192x192.png",
@@ -405,81 +438,35 @@ export default defineConfig(({ mode }) => {
               type: "image/png",
             },
             {
-              src: "apple-touch-icon.png",
-              type: "image/png",
-              sizes: "180x180",
-            },
-            {
-              src: "favicon-32x32.png",
-              sizes: "32x32",
+              src: "android-chrome-512x512.png",
+              sizes: "512x512",
               type: "image/png",
             },
             {
-              src: "favicon-16x16.png",
-              sizes: "16x16",
+              src: "maskable_icon_x192.png",
+              sizes: "192x192",
               type: "image/png",
+              purpose: "maskable",
+            },
+            {
+              src: "maskable_icon_x512.png",
+              sizes: "512x512",
+              type: "image/png",
+              purpose: "maskable",
             },
           ],
-          start_url: "/",
-          id: "excalidraw",
+          start_url: ".",
+          scope: ".",
+          id: "solvey-whiteboard",
           display: "standalone",
-          theme_color: "#121212",
-          background_color: "#ffffff",
+          theme_color: "#000000",
+          background_color: "#000000",
           file_handlers: [
             {
-              action: "/",
+              action: ".",
               accept: {
                 "application/vnd.excalidraw+json": [".excalidraw"],
               },
-            },
-          ],
-          share_target: {
-            action: "/web-share-target",
-            method: "POST",
-            enctype: "multipart/form-data",
-            params: {
-              files: [
-                {
-                  name: "file",
-                  accept: [
-                    "application/vnd.excalidraw+json",
-                    "application/json",
-                    ".excalidraw",
-                  ],
-                },
-              ],
-            },
-          },
-          screenshots: [
-            {
-              src: "/screenshots/virtual-whiteboard.png",
-              type: "image/png",
-              sizes: "462x945",
-            },
-            {
-              src: "/screenshots/wireframe.png",
-              type: "image/png",
-              sizes: "462x945",
-            },
-            {
-              src: "/screenshots/illustration.png",
-              type: "image/png",
-              sizes: "462x945",
-            },
-            {
-              src: "/screenshots/shapes.png",
-              type: "image/png",
-              sizes: "462x945",
-            },
-            {
-              src: "/screenshots/collaboration.png",
-              type: "image/png",
-              sizes: "462x945",
-            },
-            {
-              src: "/screenshots/export.png",
-              type: "image/png",
-              sizes: "462x945",
             },
           ],
         },

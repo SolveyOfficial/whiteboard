@@ -29,7 +29,6 @@ import {
 import { getNonDeletedElements } from "@excalidraw/element";
 
 import type { LibraryPersistedData } from "@excalidraw/excalidraw/data/library";
-import type { ImportedDataState } from "@excalidraw/excalidraw/data/types";
 import type { ExcalidrawElement, FileId } from "@excalidraw/element/types";
 import type {
   AppState,
@@ -46,7 +45,10 @@ import { FileStatusStore } from "./fileStatusStore";
 import { Locker } from "./Locker";
 import { updateBrowserStateVersion } from "./tabSync";
 
-const filesStore = createStore("files-db", "files-store");
+const filesStore = createStore(
+  "solvey-whiteboard-files-db",
+  "solvey-whiteboard-files-store",
+);
 
 export const localStorageQuotaExceededAtom = atom(false);
 
@@ -259,26 +261,5 @@ export class LibraryIndexedDBAdapter {
       data,
       LibraryIndexedDBAdapter.store,
     );
-  }
-}
-
-/** LS Adapter used only for migrating LS library data
- * to indexedDB */
-export class LibraryLocalStorageMigrationAdapter {
-  static load() {
-    const LSData = localStorage.getItem(
-      STORAGE_KEYS.__LEGACY_LOCAL_STORAGE_LIBRARY,
-    );
-    if (LSData != null) {
-      const libraryItems: ImportedDataState["libraryItems"] =
-        JSON.parse(LSData);
-      if (libraryItems) {
-        return { libraryItems };
-      }
-    }
-    return null;
-  }
-  static clear() {
-    localStorage.removeItem(STORAGE_KEYS.__LEGACY_LOCAL_STORAGE_LIBRARY);
   }
 }

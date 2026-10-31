@@ -107,7 +107,7 @@
     "untitled": "Atamasız",
     "name": "Ataması",
     "yourName": "Atıńız",
-    "madeWithExcalidraw": "Excalidraw járdeminde islengen",
+    "madeWithExcalidraw": "Solvey Whiteboard járdeminde islengen",
     "group": "",
     "ungroup": "",
     "collaborators": "Qatnasıwshılar",
@@ -138,7 +138,7 @@
     "toggleTheme": "",
     "theme": "",
     "personalLib": "Jeke kitapxana",
-    "excalidrawLib": "Excalidraw kitapxanası",
+    "excalidrawLib": "Solvey Whiteboard kitapxanası",
     "decreaseFontSize": "Shrift ólshemin kishireytiw",
     "increaseFontSize": "Shrift ólshemin úlkeytiw",
     "unbindText": "",
@@ -204,7 +204,6 @@
   },
   "library": {
     "noItems": "",
-    "hint_emptyLibrary": "",
     "hint_emptyPrivateLibrary": "",
     "search": {
       "inputPlaceholder": "",

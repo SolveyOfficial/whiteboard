@@ -204,7 +204,6 @@
   },
   "library": {
     "noItems": "",
-    "hint_emptyLibrary": "",
     "hint_emptyPrivateLibrary": "",
     "search": {
       "inputPlaceholder": "",
@@ -539,8 +538,8 @@
     }
   },
   "encrypted": {
-    "tooltip": "Сіздің сызбаларыңыз өтпелі шифрлеу арқылы шифрланған, сондықтан Excalidraw серверлері оларды ешқашан көрмейді.",
-    "link": "Excalidraw қолданатын өтпелі шифрлеу туралы блог жазбасы"
+    "tooltip": "Сіздің сызбаларыңыз өтпелі шифрлеу арқылы шифрланған, сондықтан Solvey Whiteboard серверлері оларды ешқашан көрмейді.",
+    "link": "Solvey Whiteboard қолданатын өтпелі шифрлеу туралы блог жазбасы"
   },
   "stats": {
     "angle": "Бұрыш",

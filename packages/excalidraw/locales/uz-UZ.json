@@ -204,7 +204,6 @@
   },
   "library": {
     "noItems": "",
-    "hint_emptyLibrary": "",
     "hint_emptyPrivateLibrary": "",
     "search": {
       "inputPlaceholder": "",

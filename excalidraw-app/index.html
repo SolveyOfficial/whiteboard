@@ -2,59 +2,26 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <title>Excalidraw Whiteboard</title>
+    <title>Solvey Whiteboard</title>
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover, shrink-to-fit=no"
     />
-    <meta name="referrer" content="origin" />
+    <meta name="referrer" content="no-referrer" />
     <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="theme-color" content="#121212" />
-
-    <!-- Primary Meta Tags -->
-    <meta
-      name="title"
-      content="Free, collaborative whiteboard • Hand-drawn look & feel | Excalidraw"
-    />
+    <meta name="theme-color" content="#000000" />
+    <meta name="application-name" content="Solvey Whiteboard" />
     <meta
       name="description"
-      content="Excalidraw is a virtual collaborative whiteboard tool that lets you easily sketch diagrams that have a hand-drawn feel to them."
+      content="A free whiteboard for sketching diagrams, wireframes and ideas with a hand-drawn feel. Your drawings stay in your browser."
     />
-    <meta name="image" content="https://excalidraw.com/og-image-3.png" />
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:site_name" content="Excalidraw" />
+    <meta property="og:site_name" content="Solvey" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://excalidraw.com" />
-    <meta
-      property="og:title"
-      content="Excalidraw — Collaborative whiteboarding made easy"
-    />
-    <meta property="og:image:alt" content="Excalidraw logo" />
+    <meta property="og:title" content="Solvey Whiteboard" />
     <meta
       property="og:description"
-      content="Excalidraw is a virtual collaborative whiteboard tool that lets you easily sketch diagrams that have a hand-drawn feel to them."
+      content="A free whiteboard for sketching diagrams, wireframes and ideas. Your drawings stay in your browser."
     />
-    <meta property="og:image" content="https://excalidraw.com/og-image-3.png" />
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:site" content="@excalidraw" />
-    <meta property="twitter:url" content="https://excalidraw.com" />
-    <meta
-      property="twitter:title"
-      content="Excalidraw — Collaborative whiteboarding made easy"
-    />
-    <meta
-      property="twitter:description"
-      content="Excalidraw is a virtual collaborative whiteboard tool that lets you easily sketch diagrams that have a hand-drawn feel to them."
-    />
-    <meta
-      property="twitter:image"
-      content="https://excalidraw.com/og-image-3.png"
-    />
-
-    <link rel="canonical" href="https://excalidraw.com" />
 
     <!------------------------------------------------------------------------->
     <!--   to minimize white flash on load when user has dark mode enabled   -->
@@ -69,14 +36,14 @@
         }
 
         function getTheme() {
-          const theme = window.localStorage.getItem("excalidraw-theme");
+          const theme = window.localStorage.getItem("solvey-whiteboard-theme");
 
           if (theme && theme === "system") {
             return window.matchMedia("(prefers-color-scheme: dark)").matches
               ? "dark"
               : "light";
           } else {
-            return theme || "light";
+            return theme || "dark";
           }
         }
 
@@ -87,36 +54,12 @@
     </script>
     <style>
       html.dark {
-        background-color: #121212;
+        background-color: #09090b;
         color: #fff;
       }
     </style>
 
-    <!-- Warmup the connection for Google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-    <!------------------------------------------------------------------------->
     <% if (typeof PROD != 'undefined' && PROD == true) { %>
-    <script>
-      // Redirect Excalidraw+ users which have auto-redirect enabled.
-      //
-      // Redirect only the bare root path, so link/room/library urls are not
-      // redirected.
-      //
-      // Putting into index.html for best performance (can't redirect on server
-      // due to location.hash checks).
-      if (
-        window.location.pathname === "/" &&
-        !window.location.hash &&
-        !window.location.search &&
-        // if its present redirect
-        document.cookie.includes("excplus-autoredirect=true")
-      ) {
-        window.location.href = "https://app.excalidraw.com";
-      }
-    </script>
-
     <!-- Following placeholder is replaced during the build step -->
     <!-- PLACEHOLDER:EXCALIDRAW_APP_FONTS -->
 
@@ -129,15 +72,14 @@
 
     <% } else { %>
     <script>
-      window.EXCALIDRAW_ASSET_PATH = window.origin;
+      window.EXCALIDRAW_ASSET_PATH = window.origin + "/";
     </script>
     <% } %>
 
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" href="favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
 
-    <!-- Excalidraw version -->
     <meta name="version" content="{version}" />
 
     <% if (typeof VITE_APP_DEV_DISABLE_LIVE_RELOAD != 'undefined' &&
@@ -157,11 +99,6 @@
       }
     </script>
     <% } %>
-    <script>
-      // setting this so that libraries installation reuses this window tab.
-      window.name = "_excalidraw";
-    </script>
-
     <!-- FIXME: remove this when we update CRA (fix SW caching) -->
     <style>
       body,
@@ -210,43 +147,9 @@
   <body>
     <noscript> You need to enable JavaScript to run this app. </noscript>
     <header>
-      <h1 class="visually-hidden">Excalidraw</h1>
+      <h1 class="visually-hidden">Solvey Whiteboard</h1>
     </header>
     <div id="root"></div>
     <script type="module" src="index.tsx"></script>
-    <% if (typeof PROD != 'undefined' && PROD == true) { %>
-    <!-- 100% privacy friendly analytics -->
-    <script>
-      // need to load this script dynamically bcs. of iframe embed tracking
-      var scriptEle = document.createElement("script");
-      scriptEle.setAttribute(
-        "src",
-        "https://scripts.simpleanalyticscdn.com/latest.js",
-      );
-      scriptEle.setAttribute("type", "text/javascript");
-      scriptEle.setAttribute("defer", true);
-      scriptEle.setAttribute("async", true);
-      // if iframe
-      if (window.self !== window.top) {
-        scriptEle.setAttribute("data-auto-collect", true);
-      }
-
-      document.body.appendChild(scriptEle);
-
-      // if iframe
-      if (window.self !== window.top) {
-        scriptEle.addEventListener("load", () => {
-          if (window.sa_pageview) {
-            window.window.sa_event(action, {
-              category: "iframe",
-              label: "embed",
-              value: window.location.pathname,
-            });
-          }
-        });
-      }
-    </script>
-    <!-- end LEGACY GOOGLE ANALYTICS -->
-    <% } %>
   </body>
 </html>
