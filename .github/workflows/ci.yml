@@ -52,10 +52,26 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
+      # solvey.in/tools/<repository>/ is forwarded to the tools/<repository>/
+      # folder of this site, so the same commit is also built for that path.
+      # Both builds write to the same folder, so this one goes first and is
+      # set aside
+      - name: Build the copy for solvey.in/tools
+        run: |
+          yarn build
+          mv excalidraw-app/build "$RUNNER_TEMP/tools-copy"
+        env:
+          BASE_PATH: /tools/${{ github.event.repository.name }}/
+
       - name: Build
         run: yarn build
         env:
           BASE_PATH: /${{ github.event.repository.name }}/
+
+      - name: Add the copy for solvey.in/tools
+        run: |
+          mkdir -p excalidraw-app/build/tools
+          mv "$RUNNER_TEMP/tools-copy" "excalidraw-app/build/tools/${{ github.event.repository.name }}"
 
       - name: Check licence notices are up to date
         run: yarn notices && git diff --exit-code THIRD_PARTY_NOTICES.md
